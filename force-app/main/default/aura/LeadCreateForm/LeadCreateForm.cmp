@@ -1,0 +1,43 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:registerEvent name="LeadFrmEvt" type="c:LeadCreateFormCmpEvent"/>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="showModal" type="Boolean" default="true" />
+    
+    
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close">                    
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">New Lead</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning:recordEditForm
+                                              onload="{!c.handleLoad}"
+                                              onsubmit="{!c.handleSubmit}"
+                                              onsuccess="{!c.handleSuccess}"
+                                              objectApiName="Lead">
+                        <!-- the messages component is for error messages -->
+                        <lightning:messages />
+                        
+                        <lightning:inputField fieldName="FirstName" />
+                        <lightning:inputField fieldName="LastName" />
+                        <lightning:inputField fieldName="Phone" />
+                        <lightning:inputField fieldName="Email" />
+                        <lightning:inputField fieldName="Company" />                    
+                        <div class="slds-m-top_medium">
+                            <lightning:button disabled="{!v.disabled}" 
+                                              variant="brand" 
+                                              type="submit" 
+                                              name="save" 
+                                              label="Save" />
+                        </div>
+                    </lightning:recordEditForm>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    
+</aura:component>

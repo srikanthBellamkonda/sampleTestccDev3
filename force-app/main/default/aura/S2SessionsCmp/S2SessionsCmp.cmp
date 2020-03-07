@@ -1,0 +1,5 @@
+<aura:component >
+	<div>
+    	<h1> Normal Form </h1>
+    </div>
+</aura:component>

@@ -1,0 +1,71 @@
+.THIS.container,.THIS .container{
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: .8125rem;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+@media (min-width: 80.01em){
+    .THIS .header {
+        padding-left: 5%;
+        padding-right: 5%;
+    } 
+}
+
+@media (min-width: 51.26em){
+    .THIS .header {
+        height: 6.25em;
+        padding: 0 1.5em;
+    } 
+}
+.THIS .header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5em;
+    padding: 0 1em;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    z-index: 333;
+}
+@media (min-width: 51.26em){
+    .THIS .header__logo img {
+        width: 148px;
+        max-width: 148px;
+    }
+}
+.THIS .header__logo {
+    max-width: 148px;
+    height: 2.5em;
+}
+.THIS .header__links {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+.THIS .header__links li{
+    text-align:right;   
+}
+.THIS .header__links a {
+    font-weight: 300;
+    color: #333;
+    text-decoration: none;
+}
+.THIS .header__links li:last-child {
+    padding-right: 0;
+}
+.THIS .header__links li a
+{
+    color: #333;
+    font-size: 1.2em;
+    font-weight: 600;
+}

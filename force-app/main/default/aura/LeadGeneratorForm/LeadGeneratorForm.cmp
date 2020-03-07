@@ -1,0 +1,51 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global"
+                controller="LeadGeneratorCntrl">
+    <aura:handler name= "init" value="{!this}" action="{!c.onLoad}"/>
+    <aura:attribute name="allLeads" type="LIST"/>
+    <aura:attribute name="showNewLeadForm" type="Boolean"/>
+    <aura:handler name="LeadFrmEvt" event="c:LeadCreateFormCmpEvent" 
+                  action="{!c.handleComponentEvent}"/>
+    
+    
+    
+    <div>
+        <div class="demo-only" style="padding:0.5rem;background:#16325c">
+            <div class="slds-text-color_inverse">Loading Today Leads.</div>
+            <lightning:button label="New Lead"
+                              title="New Lead" 
+                              onclick="{! c.openLeadDialogBoxfunc }"/>
+        </div>
+        <div>
+            <aura:iteration items="{!v.allLeads}" var="item">
+                <lightning:card footer="@Swhizz Tech..!" title="{!item.Name}">                   
+                    <p class="slds-p-horizontal_small">
+                        Lead Name: {!item.Name}
+                        Phone: {!item.Phone}
+                    </p>
+                </lightning:card>
+            </aura:iteration>
+        </div>        
+    </div>
+    
+    <aura:if isTrue="{!v.showNewLeadForm}">
+        <c:LeadCreateForm/>
+        
+    </aura:if> 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</aura:component>
